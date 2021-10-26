@@ -23,7 +23,7 @@ const items = document.querySelectorAll('.item');
 const reset = document.getElementById('reset');
 
     reset.addEventListener('click', () => {
-        const MAX_SIZE = 15;
+        const MAX_SIZE = 64;
         const grid = document.getElementById('grid');
         while(grid.firstChild) {
             grid.removeChild(grid.lastChild);
