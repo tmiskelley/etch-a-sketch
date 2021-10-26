@@ -9,13 +9,13 @@ function makeGrid(rows, cols) {
     }
 }
 
-makeGrid(2, 2);
+makeGrid(10, 10);
 
 const grid = document.getElementById('#grid');
 const items = document.querySelectorAll('.item');
 
     items.forEach((item) => {
-        item.addEventListener('click',() => {
+        item.addEventListener('mouseover',() => {
             item.setAttribute('style', 'background-color: black;');
         })
     });
@@ -29,25 +29,38 @@ const reset = document.getElementById('reset');
             grid.removeChild(grid.lastChild);
         }
 
-        let row = prompt("Enter desired rows: ");
-        let col = prompt("Enter desired columns: ");
+        let gridSize = prompt("Enter grid size: ");
 
-        if(row > MAX_SIZE || col > MAX_SIZE) {
+        if(gridSize > MAX_SIZE) {
             alert("Exceeds maximum grid size");
-            row = prompt("Enter desired rows: ");
-            col = prompt("Enter desired columns: ");
+            gridSize = prompt("Enter grid size: ");
 
-            makeGrid(row, col);
+            makeGrid(gridSize, gridSize);
         } else {
-            makeGrid(row, col);
+            makeGrid(gridSize, gridSize);
         }
 
         const items = document.querySelectorAll('.item');
 
             items.forEach((item) => {
-                item.addEventListener('click',() => {
+                item.addEventListener('mouseover',() => {
                     item.setAttribute('style', 'background-color: black;');
                 })
             });
+        
+        const clear = document.getElementById('clear');
+            clear.addEventListener('click', () => {
+                items.forEach((item) => {
+                    item.setAttribute('style', 'background-color: none;');
+                });
+            });
     });
+
+const clear = document.getElementById('clear');
+    clear.addEventListener('click', () => {
+        items.forEach((item) => {
+            item.setAttribute('style', 'background-color: none;');
+        });
+    });
+
 
