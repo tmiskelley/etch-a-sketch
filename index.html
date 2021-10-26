@@ -8,18 +8,21 @@
     </head>
     <body>
         <h1>Etch-a-Sketch</h1>
+        <div id="grid"></div>
         <div class="options">
-            <div>
-                <div class="btn">
-                    <button id="reset">New Grid</button>
-                </div>
-            </div>
             <div>
                 <div class="btn">
                     <button id="clear">Clear</button>
                 </div>
             </div>
+            <div class="slider">
+                <div>
+                    <h2>Grid size</h2>
+                </div>
+                <div>
+                    <input type="range" min="2" max="64" value="32" id="myRange">
+                </div>
+            </div>
         </div>
-        <div id="grid"></div>
     </body>
 </html>

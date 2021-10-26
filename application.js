@@ -9,9 +9,9 @@ function makeGrid(rows, cols) {
     }
 }
 
-makeGrid(10, 10);
+makeGrid(32, 32)
 
-const grid = document.getElementById('#grid');
+const grid = document.getElementById('grid');
 const items = document.querySelectorAll('.item');
 
     items.forEach((item) => {
@@ -20,25 +20,17 @@ const items = document.querySelectorAll('.item');
         })
     });
 
-const reset = document.getElementById('reset');
+const slider = document.getElementById('myRange');
 
-    reset.addEventListener('click', () => {
-        const MAX_SIZE = 64;
+    slider.onchange = function() {
         const grid = document.getElementById('grid');
+
         while(grid.firstChild) {
             grid.removeChild(grid.lastChild);
         }
 
-        let gridSize = prompt("Enter grid size: ");
-
-        if(gridSize > MAX_SIZE) {
-            alert("Exceeds maximum grid size");
-            gridSize = prompt("Enter grid size: ");
-
-            makeGrid(gridSize, gridSize);
-        } else {
-            makeGrid(gridSize, gridSize);
-        }
+        let gridSize = this.value;
+        makeGrid(gridSize, gridSize);
 
         const items = document.querySelectorAll('.item');
 
@@ -48,19 +40,25 @@ const reset = document.getElementById('reset');
                 })
             });
         
-        const clear = document.getElementById('clear');
+            const clear = document.getElementById('clear');
             clear.addEventListener('click', () => {
                 items.forEach((item) => {
                     item.setAttribute('style', 'background-color: none;');
                 });
             });
-    });
+    }
 
-const clear = document.getElementById('clear');
-    clear.addEventListener('click', () => {
-        items.forEach((item) => {
-            item.setAttribute('style', 'background-color: none;');
-        });
+    items.forEach((item) => {
+        item.addEventListener('mouseover',() => {
+            item.setAttribute('style', 'background-color: black;');
+        })
     });
+    
+    const clear = document.getElementById('clear');
+        clear.addEventListener('click', () => {
+            items.forEach((item) => {
+                item.setAttribute('style', 'background-color: none;');
+            });
+        });
 
 
