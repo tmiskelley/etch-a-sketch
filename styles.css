@@ -4,7 +4,14 @@
 }
 
 h1 {
+    margin: 0;
     text-align: center;
+}
+
+button {
+    padding: 6px 24px;
+    margin: .5em;
+    font-size: 18px;
 }
 
 #grid {
@@ -12,12 +19,17 @@ h1 {
     grid-template-rows: repeat(var(--grid-rows), 1fr);
     grid-template-columns: repeat(var(--grid-cols), 1fr);
     margin: 0 auto;
-    max-width: 1890px;
-    min-height: 900px;
+    max-width: 1500px;
+    min-width: 800px;
+    height: 1000px;
 }
 
 .item {
-    padding: 25px;
     border: 1px solid #333;
     text-align: center;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
 }
